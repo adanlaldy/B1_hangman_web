@@ -11,7 +11,7 @@ func HandlePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/home.html"))
 	input := "t pa bo"
 	data := classic.HangManData{
-		Try:             "",
+		Try:             "1",
 		Letter:          input,
 		Randomword:      "",
 		TotalTries:      0,
