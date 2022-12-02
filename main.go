@@ -1,25 +1,31 @@
 package main
 
 import (
+	"classic"
 	"fmt"
+	"html/template"
 	"net/http"
-	template2 "text/template"
 )
 
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	RenderTemplate(w, "home", "")
-}
-
-func RenderTemplate(w http.ResponseWriter, template string, data interface{}) {
-	t, err := template2.ParseFiles("./templates/" + template + ".html")
-	if err != nil {
-		fmt.Println("ERROR : Can't render template", err)
+func HandlePage(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseFiles("./templates/home.html"))
+	input := "t pa bo"
+	data := classic.HangManData{
+		Try:             "",
+		Letter:          input,
+		Randomword:      "",
+		TotalTries:      0,
+		NFormula:        0,
+		Slice:           []string{},
+		SliceRandomword: []string{},
+		Boolean:         true,
 	}
-	t.Execute(w, "")
+	t.Execute(w, data)
 }
 
 func main() {
-	http.HandleFunc("/", homeHandler)
-	http.ListenAndServe(":8080", nil)
 	print("http://localhost:8080")
+	http.HandleFunc("/", HandlePage)
+	http.ListenAndServe(":8080", nil)
+	fmt.Printf("Starting server at port 8080\n")
 }

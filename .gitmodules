@@ -1,6 +1,0 @@
-[submodule "hangmanclassic"]
-	path = hangmanclassic
-	url = https://ytrack.learn.ynov.com/git/ladan/hangman-classic.git
-[submodule "hangman-classic"]
-	path = hangman-classic
-	url = https://ytrack.learn.ynov.com/git/ladan/hangman-classic.git
