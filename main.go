@@ -32,7 +32,7 @@ func HandlePage(w http.ResponseWriter, r *http.Request) {
 	data.classic.SliceRandomword = make([]string, len(data.classic.Randomword))
 	classic.PrintLettersInTheFullSlice(&data.classic)
 	classic.Start(&data.classic)
-	data.Nletter = classic.PrintNLetters(&data.classic)
+	data.Nletter = classic.PrintNLetters(data.classic)
 	t.Execute(w, data)
 }
 func main() {
