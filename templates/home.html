@@ -7,14 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman-web</title>
 </head>
-<body style="background-color:skyblue;">
-<h1 style="font-size:36pt; color:white">PRET POUR JOUER ?</h1>
+<body>
+<h1>{{.Nletter}}</h1>
 <div>
-<label for="uname" align="center">Rentre une lettre ou un mot</label>
-<input type="text" required size="12" id="uname" name="name" required size="45" placeholder="Peut être A?" pattern="[A-Z]{1,10}">
-<span class="validity"></span>
+    <input size="50" placeholder="Choose a letter">
 </div>
-<button> Entrer </button>
-<h3>{{.Letter}}</h3>
+<button> Entrer</button>
 </body>
-</html>
+</html>>
