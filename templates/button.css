@@ -23,6 +23,8 @@ button:hover, button:focus {
 }
 
 button {
+    position: absolute;
+    z-index: 2;
     color: white;
     text-align: center;
     display: inline-block;
@@ -34,9 +36,8 @@ button {
     line-height: 1;
     transition: background-color 0.3s, box-shadow 0.3s, color 0.3s, duration 0.4s;
     margin: 0.5em;
-    margin-top: 240px;
+    margin-top: 465px;
     margin-left: 690px;
-    z-index: 2;
     border-radius : 6px;
     cursor: pointer;
 }

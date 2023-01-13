@@ -2,6 +2,9 @@
     width: 125px;
     height: 25px;
     z-index: 2;
+    position: absolute;
+    margin-top: 395px;
+    margin-left: 670px;
     border: 3px solid #fff;
     border-radius: 8px;
     box-shadow:
@@ -15,8 +18,8 @@
 
 .title {
     color: #c6e2ff;
-    /*margin-left: 585px;*/
-    position: relative;
+    margin-left: 585px;
+    position: absolute;
     font-size: 80px;
     z-index: 2;
     text-shadow:
@@ -36,10 +39,11 @@ body {
 }
 
 .image-holder {
-    width: 1460px;
+    width: 1465px;
     height: 700px;
     z-index: -1;
+    position: absolute;
     background: url("../source/neige.gif") repeat center;
-    background-position: center center;
+    background-position: top center;
     background-attachment: fixed;
 }
