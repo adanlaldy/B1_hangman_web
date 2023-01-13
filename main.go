@@ -2,7 +2,6 @@ package main
 
 import (
 	"classic"
-	"fmt"
 	"html/template"
 	"net/http"
 	"strings"
@@ -10,35 +9,48 @@ import (
 
 type HangmanWeb struct {
 	classic classic.HangManData
-	Nletter string
+	Hangman string
+	Tries   int
+}
+
+var Data = HangmanWeb{
+	classic: classic.HangManData{
+		Try:             "",
+		Letter:          "",
+		Randomword:      strings.ToUpper(classic.Randomword()),
+		TotalTries:      10,
+		NFormula:        0,
+		Slice:           []string{},
+		SliceRandomword: []string{},
+		Boolean:         false,
+	},
 }
 
 func HandlePage(w http.ResponseWriter, r *http.Request) {
-	t := template.Must(template.ParseFiles("./templates/home.html"))
-	data := HangmanWeb{
-		classic: classic.HangManData{
-			Try:             "",
-			Letter:          "",
-			Randomword:      strings.ToUpper(classic.Randomword()),
-			TotalTries:      10,
-			NFormula:        0,
-			Slice:           []string{},
-			SliceRandomword: []string{},
-			Boolean:         false,
-		},
+	if classic.IfZeroTry(&Data.classic) == true {
+		return
 	}
-	data.classic.NFormula = len(classic.Randomword())/2 - 1
-	data.classic.Slice = make([]string, len(data.classic.Randomword))
-	data.classic.SliceRandomword = make([]string, len(data.classic.Randomword))
-	classic.PrintLettersInTheFullSlice(&data.classic)
-	classic.Start(&data.classic)
-	data.Nletter = classic.PrintNLetters(&data.classic)
-	t.Execute(w, data)
+	Data.classic.Try = r.FormValue("input")
+	if classic.IfInputIsTheFullWord(&Data.classic) == true {
+		return
+	}
+	classic.IfInputIsTrue(&Data.classic)
+	if classic.IfSliceIsFull(&Data.classic) == true {
+		return
+	}
+	classic.PrintSlice(&Data.classic)
+	t := template.Must(template.ParseFiles("./templates/home.html"))
+	t.Execute(w, Data)
 }
 
 func main() {
+	Data.classic.NFormula = len(classic.Randomword())/2 - 1
+	Data.classic.Slice = make([]string, len(Data.classic.Randomword))
+	Data.classic.SliceRandomword = make([]string, len(Data.classic.Randomword))
+	classic.PrintLettersInTheFullSlice(&Data.classic)
+	classic.Start(&Data.classic)
+	classic.PrintNLetters(&Data.classic)
 	print("http://localhost:8080")
 	http.HandleFunc("/", HandlePage)
 	http.ListenAndServe(":8080", nil)
-	fmt.Printf("Starting server at port 8080\n")
 }

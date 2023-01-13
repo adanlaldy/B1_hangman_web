@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman-web</title>
 </head>
 <body>
-<h1>{{.Nletter}}</h1>
-<div>
-    <p>helllloo</p>
-    <input size="50" placeholder="Choose a letter">
-</div>
-<button> Entrer</button>
+<h1>Number of try left : {{.Tries}}</h1>
+<h2>{{.Slice}}</h2>
+<form method="get">
+    <input name="input" type="text" placeholder="Choose a letter">
+    <input type="submit">
+</form>
 </body>
 </html>
