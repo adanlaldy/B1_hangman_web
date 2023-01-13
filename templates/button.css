@@ -1,0 +1,47 @@
+.pulse:hover,
+.pulse:focus {
+    -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 white;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 white;
+    }
+}
+
+button:hover, button:focus {
+    border-color: white;
+    color: #fff;
+}
+
+button {
+    color: white;
+    text-align: center;
+    display: inline-block;
+    background: none;
+    border: 2px solid;
+    font-size: 15px;
+    padding: 10px 15px;
+    letter-spacing: 0.25em;
+    line-height: 1;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s, duration 0.4s;
+    margin: 0.5em;
+    margin-top: 240px;
+    margin-left: 690px;
+    z-index: 2;
+    border-radius : 6px;
+    cursor: pointer;
+}
+
+.fuller-button {
+    box-shadow: inset 0 0 1em #FF1496, 0 0 1em #FF1496;
+    border: white solid 2px;
+}

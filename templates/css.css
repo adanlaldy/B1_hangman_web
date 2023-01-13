@@ -1,30 +1,45 @@
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+.neon {
+    width: 125px;
+    height: 25px;
+    z-index: 2;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    box-shadow:
+            0 0 8px #fff,
+            inset 0 0 8px #fff,
+            0 0 16px #652EC7,
+            inset 0 0 16px #652EC7,
+            0 0 32px #652EC7,
+            inset 0 0 32px #652EC7;
 }
 
-.button1:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    border: 2px solid #4CAF50;
-}
-
-.button1 {
-    background-color: #4CAF50;
-    color: white;
+.title {
+    color: #c6e2ff;
+    /*margin-left: 585px;*/
+    position: relative;
+    font-size: 80px;
+    z-index: 2;
+    text-shadow:
+            0 0 6px rgba(202,228,225,0.92),
+            0 0 30px rgba(202,228,225,0.34),
+            0 0 12px rgba(30,132,242,0.52),
+            0 0 21px rgba(30,132,242,0.92),
+            0 0 34px rgba(30,132,242,0.78),
+            0 0 54px rgba(30,132,242,0.92);
 }
 
 body {
-    background-image: url("../banner.jpg");
+    background-image: url("../source/banner.jpg");
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
+}
+
+.image-holder {
+    width: 1460px;
+    height: 700px;
+    z-index: -1;
+    background: url("../source/neige.gif") repeat center;
+    background-position: center center;
     background-attachment: fixed;
 }
