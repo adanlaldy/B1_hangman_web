@@ -9,8 +9,8 @@ import (
 
 type HangmanWeb struct {
 	classic classic.HangManData
-	Hangman string
-	Tries   int
+	//Hangman string
+	//Tries   int
 }
 
 var Data = HangmanWeb{
@@ -31,6 +31,7 @@ func HandlePage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	Data.classic.Try = r.FormValue("input")
+	Data.classic.Try = strings.ToUpper(Data.classic.Try)
 	if classic.IfInputIsTheFullWord(&Data.classic) == true {
 		return
 	}
@@ -38,9 +39,14 @@ func HandlePage(w http.ResponseWriter, r *http.Request) {
 	if classic.IfSliceIsFull(&Data.classic) == true {
 		return
 	}
-	classic.PrintSlice(&Data.classic)
 	t := template.Must(template.ParseFiles("./templates/home.html"))
-	t.Execute(w, Data)
+	t.Execute(w, struct {
+		Tries int
+		Slice string
+	}{
+		Data.classic.TotalTries,
+		classic.PrintSlice(&Data.classic),
+	})
 }
 
 func main() {
