@@ -31,15 +31,30 @@
             0 0 54px rgba(30,132,242,0.92);
 }
 
+.text {
+    color: #e8daf6;
+    margin-left: 200px;
+    margin-top: 400px;
+    position: absolute;
+    font-size: 50px;
+    z-index: 2;
+    text-shadow:
+            0 0 6px rgb(232, 218, 246),
+            0 0 30px rgba(211, 192, 227, 0.27),
+            0 0 12px rgba(125, 30, 242, 0.52),
+            0 0 21px rgba(164, 30, 242, 0.92),
+            0 0 34px rgba(164, 30, 242, 0.78),
+            0 0 54px rgba(164, 30, 242, 0.92);
+}
 body {
-    background-image: url("../source/banner.jpg");
+    background-image: url("../source/background.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
 }
 
 .image-holder {
-    width: 1465px;
+    width: 1475px;
     height: 700px;
     z-index: -1;
     position: absolute;
