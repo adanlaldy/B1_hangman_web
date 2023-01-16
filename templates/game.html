@@ -4,17 +4,19 @@
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="button.css">
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman-web</title>
 </head>
 <body>
 <div class="image-holder">
 </div>
 <h1 class="title">NeonMan</h1>
+<h2>Number of try left: {{.Tries}}</h2>
+<h3>{{.Slice}}</h3>
+<h4>{{.SliceTries}}</h4>
 <div>
-    <input class="neon" size="50" placeholder="Choose a letter">
+    <form method="POST">
+        <input class="neon" name="input" type="text" placeholder="Choose a letter">
+    </form>
 </div>
 <button class="pulse enter">Enter</button>
 <p class="text">TEST</p>
