@@ -2,7 +2,6 @@ package main
 
 import (
 	"classic"
-	"fmt"
 	"html/template"
 	"net/http"
 	"strings"
@@ -23,6 +22,7 @@ var Data = HangmanWeb{
 		SliceRandomword: []string{},
 		SliceTries:      []string{},
 		Boolean:         false,
+		Boolean2:        false,
 	},
 }
 
@@ -30,14 +30,9 @@ var Data = HangmanWeb{
 // L'array qui stock les lettres déjà utilisés commence à beuguer quand il y a beaucoup de lettres ou quand on input des majuscules
 func HandlePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/home.html"))
-	boolean := false
-	for i := 0; i < len(Data.classic.SliceTries); i++ {
-		if Data.classic.SliceTries[i] == r.FormValue("input") {
-			boolean = true
-		}
-	}
 	if r.FormValue("input") != "" {
 		Data.classic.Boolean = false
+		Data.classic.Boolean2 = false
 		if classic.IfZeroTry(&Data.classic) == true {
 			return
 		}
@@ -45,16 +40,16 @@ func HandlePage(w http.ResponseWriter, r *http.Request) {
 		if classic.IfInputIsTheFullWord(&Data.classic) == true {
 			return
 		}
+		if classic.Ifinputisthesame(&Data.classic) == true {
 
-		if classic.IfInputIsTrue(&Data.classic) == false {
-			Data.classic.TotalTries--
-			Data.classic.SliceTries = append((Data.classic.SliceTries), r.FormValue("input"))
-		} else if classic.IfInputIsTrue(&Data.classic) == true && boolean == false {
-			Data.classic.SliceTries = append((Data.classic.SliceTries), r.FormValue("input"))
-		} else if classic.IfInputIsTrue(&Data.classic) == true || classic.IfInputIsTrue(&Data.classic) == false && boolean == false {
-			fmt.Println("you cannot enter twice the same letter")
+		} else {
+			if classic.IfInputIsTrue(&Data.classic) == false && Data.classic.Boolean == false {
+				Data.classic.TotalTries--
+				Data.classic.SliceTries = append((Data.classic.SliceTries), Data.classic.Try)
+			} else if Data.classic.Boolean == true {
+				Data.classic.SliceTries = append((Data.classic.SliceTries), Data.classic.Try)
+			}
 		}
-
 		if classic.IfSliceIsFull(&Data.classic) == true {
 			return
 		}
