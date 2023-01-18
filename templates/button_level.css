@@ -19,7 +19,7 @@ a {
 
 .easy {
     margin-top: 130px;
-    margin-left: 380px;
+    margin-left: 430px;
     font-family: Broadway;
     background-color: #7d1ef2;
     border-radius : 6px;
@@ -32,7 +32,7 @@ a {
 
 .normal {
     margin-top: 130px;
-    margin-left: 470px;
+    margin-left: 430px;
     font-family: "Franklin Gothic Medium";
     -webkit-text-stroke: 0.75px black;
     background-color: #f300ce;
@@ -46,7 +46,7 @@ a {
 
 .hard {
     margin-top: 400px;
-    margin-left: 690px;
+    margin-left: 706px;
     font-family: Copperplate Gothic Light;
     font-weight: bold;
     background-color: #03e9f4;
@@ -61,7 +61,7 @@ a {
     z-index: 3;
     position: absolute;
     background: url("https://i.gifer.com/XZ5N.gif") no-repeat center;
-    margin-top: 40%;
+    margin-top: 38.75%;
     margin-left: 36%;
 }
 .gif_hard2 {
@@ -71,6 +71,6 @@ a {
     z-index: 4;
     position: absolute;
     background: url("https://i.gifer.com/XZ5N.gif") no-repeat center;
-    margin-top: 39.75%;
-    margin-left: 52.75%;
+    margin-top: 38.35%;
+    margin-left: 52.10%;
 }
