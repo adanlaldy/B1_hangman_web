@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css.css">
-    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="./static/css.css">
+    <link rel="stylesheet" href="./static/button_game.css">
     <meta charset="UTF-8">
     <title>Hangman-web</title>
 </head>
 <body>
-<div class="image-holder">
+<div class="gif_neige">
 </div>
 <h1 class="title">NeonMan</h1>
-<h2>Number of try left: {{.Tries}}</h2>
-<h3>{{.Slice}}</h3>
-<h4>{{.SliceTries}}</h4>
+<h2 class="tries">Number of try left: {{.Tries}}</h2>
+<h3 class="slice">{{.Slice}}</h3>
+<h4 class="neon_letter">{{.SliceTries}}</h4>
 <div>
     <form method="POST">
-        <input class="neon" name="input" type="text" placeholder="Choose a letter">
+        <input class="neon_input" name="input" type="text" placeholder="Choose a letter">
     </form>
 </div>
 <button class="pulse enter">Enter</button>
-<p class="text">TEST</p>
 </body>
 </html>
