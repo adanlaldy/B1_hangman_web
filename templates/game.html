@@ -7,17 +7,17 @@
     <title>Hangman-web</title>
 </head>
 <body>
-<div class="gif_neige">
-</div>
 <h1 class="title">NeonMan</h1>
+<section>
 <h2 class="tries">Number of try left: {{.Tries}}</h2>
 <h3 class="slice">{{.Slice}}</h3>
-<h4 class="neon_letter">{{.SliceTries}}</h4>
 <div>
     <form method="POST">
         <input class="neon_input" name="input" type="text" placeholder="Choose a letter">
     </form>
 </div>
-<button class="pulse enter">Enter</button>
+    <button class="pulse enter">Enter</button>
+</section>
+<h4 class="neon_letter">{{.SliceTries}}</h4>
 </body>
 </html>

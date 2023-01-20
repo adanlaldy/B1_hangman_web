@@ -2,9 +2,7 @@
     width: 125px;
     height: 25px;
     z-index: 2;
-    position: absolute;
-    margin-top: 395px;
-    margin-left: 700px;
+    position: relative;
     border: 3px solid #fff;
     border-radius: 8px;
     box-shadow:
@@ -19,7 +17,7 @@
 .neon_letter {
     color: #e8daf6;
     margin: 20px auto;
-    position: absolute;
+    position: relative;
     font-size: 50px;
     z-index: 2;
     text-shadow:
@@ -34,7 +32,7 @@
 .title {
     color: #c6e2ff;
     margin-left: 585px;
-    position: absolute;
+    position: relative;
     font-size: 80px;
     z-index: 2;
     text-shadow:
@@ -48,8 +46,7 @@
 
 .tries {
     color: #e8daf6;
-    margin: 20px auto;
-    position: absolute;
+    position: relative;
     font-size: 50px;
     z-index: 2;
     text-shadow:
@@ -63,9 +60,7 @@
 
 .slice {
     color: #e8daf6;
-    margin-top: 300px;
-    margin-left: 700px;
-    position: absolute;
+    position: relative;
     font-size: 50px;
     z-index: 2;
     text-shadow:
@@ -76,6 +71,7 @@
             0 0 34px rgba(164, 30, 242, 0.78),
             0 0 54px rgba(164, 30, 242, 0.92);
 }
+
 body {
     background-image: url("https://lasergameverviers.be/img/banner.jpg");
     background-repeat: no-repeat;
@@ -83,23 +79,16 @@ body {
     background-attachment: fixed;
 }
 
-.gif_neige {
-    width: 1500px;
-    height: 700px;
-    z-index: -1;
-    position: absolute;
-    background: url("https://img1.picmix.com/output/stamp/normal/8/7/4/0/1390478_5f752.gif") repeat center;
-    background-position: top center;
-    background-attachment: fixed;
+.flou {
+    backdrop-filter: blur(2.25px);
 }
 
-/*.gif_sound {
-    width: 100px;
-    height: 100px;
-    z-index: -1;
-    position: absolute;
-    background-attachment: fixed;
-    background: url("https://i.gifer.com/Z23N.gif") no-repeat center;
-    margin-top: 10%;
-    margin-left: 40%;
+section {
+    margin-top: 0;
+    padding: 0;
+    display: block;
+    width: 525px;
+    height: 300px;
+    text-align: center;
+    margin-left: 33%;
 }
