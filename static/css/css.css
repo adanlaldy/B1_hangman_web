@@ -29,11 +29,9 @@
             0 0 54px rgba(164, 30, 242, 0.92);
 }
 
-.title {
+.neon {
     color: #c6e2ff;
-    margin-left: 585px;
     position: relative;
-    font-size: 80px;
     z-index: 2;
     text-shadow:
             0 0 6px rgba(202,228,225,0.92),
@@ -42,6 +40,17 @@
             0 0 21px rgba(30,132,242,0.92),
             0 0 34px rgba(30,132,242,0.78),
             0 0 54px rgba(30,132,242,0.92);
+}
+
+.title {
+    margin-left: 585px;
+    font-size: 80px;
+}
+
+.quest {
+    margin-left: 398px;
+    margin-top: 25px;
+    font-size: 50px;
 }
 
 .tries {
@@ -86,9 +95,28 @@ body {
 section {
     margin-top: 0;
     padding: 0;
-    display: block;
+    display: block flex;
+    text-align: center;
+}
+
+.home {
     width: 525px;
     height: 300px;
-    text-align: center;
     margin-left: 33%;
+}
+
+.level {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    margin: 20px auto;
+    top: 100px;
+}
+
+img {
+    width: 10%;
+    height: auto;
+    position: center;
+    display: block;
+    margin: 0;
 }
