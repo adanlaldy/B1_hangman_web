@@ -46,8 +46,22 @@ func LevelPage(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, r)
 }
 
+func restart() {
+	Data.classic.Randomword = strings.ToUpper(classic.Randomword(&Data.classic))
+	Data.classic.NFormula = len(classic.Randomword(&Data.classic))/2 - 1
+	Data.classic.Slice = make([]string, len(Data.classic.Randomword))
+	Data.classic.SliceRandomword = make([]string, len(Data.classic.Randomword))
+	Data.classic.Jose = 0
+	Data.classic.TotalTries = 10
+	Data.classic.SliceTries = []string{}
+	classic.PrintLettersInTheFullSlice(&Data.classic)
+	classic.Start(&Data.classic)
+	classic.PrintNLetters(&Data.classic)
+}
+
 func WinPage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/YouWin.html"))
+	restart()
 	if r.FormValue("restart") != "" {
 		http.Redirect(w, r, "/level", 303)
 	}
@@ -56,6 +70,7 @@ func WinPage(w http.ResponseWriter, r *http.Request) {
 
 func LoosePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/GameOver.html"))
+	restart()
 	if r.FormValue("restart") != "" {
 		http.Redirect(w, r, "/level", 303)
 	}
