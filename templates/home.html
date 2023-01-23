@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="./staticc/css/css.css">
+    <link rel="stylesheet" href="./staticc/css/button_game.css">
     <meta charset="UTF-8">
     <title>Hangman-web</title>
 </head>
 <body>
-<h2>Number of try left: {{.Tries}}</h2>
-<h3>{{.Slice}}</h3>
-<h4>{{.SliceTries}}</h4>
+<h1 class="title">NeonMan</h1>
+<section>
+<h2 class="tries">Number of try left: {{.Tries}}</h2>
+<h3 class="slice">{{.Slice}}</h3>
 <form method="POST">
-    <input name="input" type="text" placeholder="Choose a letter" autocomplete="off">
+    <input class="neon_input" name="input" type="text" placeholder="Choose a letter" autocomplete="off">
+    <br>
+    <button class="pulse enter">Enter</button>
 </form>
-<input type="submit">
-<br>
+</section>
+<h4 class="neon_letter">{{.SliceTries}}</h4>
 <img src="./static/neonn({{.Jose}}).png" alt="">
 </body>
 </html>

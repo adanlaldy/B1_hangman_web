@@ -1,0 +1,87 @@
+.neon_input {
+    width: 125px;
+    height: 25px;
+    z-index: 2;
+    position: relative;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    box-shadow:
+            0 0 8px #fff,
+            inset 0 0 8px #fff,
+            0 0 16px #652EC7,
+            inset 0 0 16px #652EC7,
+            0 0 32px #652EC7,
+            inset 0 0 32px #652EC7;
+}
+.neon_letter {
+    color: #e8daf6;
+    margin: 20px auto;
+    position: relative;
+    font-size: 50px;
+    z-index: 2;
+    text-shadow:
+            0 0 6px rgb(232, 218, 246),
+            0 0 30px rgba(211, 192, 227, 0.27),
+            0 0 12px rgba(125, 30, 242, 0.52),
+            0 0 21px rgba(164, 30, 242, 0.92),
+            0 0 34px rgba(164, 30, 242, 0.78),
+            0 0 54px rgba(164, 30, 242, 0.92);
+}
+.title {
+    color: #c6e2ff;
+    margin-left: 585px;
+    position: relative;
+    font-size: 80px;
+    z-index: 2;
+    text-shadow:
+            0 0 6px rgba(202,228,225,0.92),
+            0 0 30px rgba(202,228,225,0.34),
+            0 0 12px rgba(30,132,242,0.52),
+            0 0 21px rgba(30,132,242,0.92),
+            0 0 34px rgba(30,132,242,0.78),
+            0 0 54px rgba(30,132,242,0.92);
+}
+.tries {
+    color: #e8daf6;
+    position: relative;
+    font-size: 50px;
+    z-index: 2;
+    text-shadow:
+            0 0 6px rgb(232, 218, 246),
+            0 0 30px rgba(211, 192, 227, 0.27),
+            0 0 12px rgba(125, 30, 242, 0.52),
+            0 0 21px rgba(164, 30, 242, 0.92),
+            0 0 34px rgba(164, 30, 242, 0.78),
+            0 0 54px rgba(164, 30, 242, 0.92);
+}
+.slice {
+    color: #e8daf6;
+    position: relative;
+    font-size: 50px;
+    z-index: 2;
+    text-shadow:
+            0 0 6px rgb(232, 218, 246),
+            0 0 30px rgba(211, 192, 227, 0.27),
+            0 0 12px rgba(125, 30, 242, 0.52),
+            0 0 21px rgba(164, 30, 242, 0.92),
+            0 0 34px rgba(164, 30, 242, 0.78),
+            0 0 54px rgba(164, 30, 242, 0.92);
+}
+body {
+    background-image: url("https://lasergameverviers.be/img/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.flou {
+    backdrop-filter: blur(2.25px);
+}
+section {
+    margin-top: 0;
+    padding: 0;
+    display: block;
+    width: 525px;
+    height: 300px;
+    text-align: center;
+    margin-left: 33%;
+}

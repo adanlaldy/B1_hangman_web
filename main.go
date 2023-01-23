@@ -2,6 +2,7 @@ package main
 
 import (
 	"classic"
+	"fmt"
 	"html/template"
 	"net/http"
 	"strings"
@@ -16,71 +17,101 @@ var Data = HangmanWeb{
 		Try:             "",
 		Letter:          "",
 		Name:            "",
-		Randomword:      strings.ToUpper(classic.Randomword()),
+		Difficulty:      "",
+		Randomword:      "",
 		TotalTries:      10,
 		NFormula:        0,
 		Jose:            0,
 		Slice:           []string{},
 		SliceRandomword: []string{},
 		SliceTries:      []string{},
-		Boolean:         false,
-		Boolean2:        false,
+		InputTrue:       false,
+		InputTrue2:      false,
 	},
 }
 
-func HandlePage(w http.ResponseWriter, r *http.Request) {
+func LevelPage(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseFiles("./templates/level.html"))
+	if !(r.FormValue("name ") == "" && r.FormValue("difficulty") == "") {
+		Data.classic.Name = r.FormValue("name")
+		Data.classic.Difficulty = r.FormValue("difficulty")
+		Data.classic.Randomword = strings.ToUpper(classic.Randomword(&Data.classic))
+		Data.classic.NFormula = len(classic.Randomword(&Data.classic))/2 - 1
+		Data.classic.Slice = make([]string, len(Data.classic.Randomword))
+		Data.classic.SliceRandomword = make([]string, len(Data.classic.Randomword))
+		Data.classic.Jose = 0
+		classic.PrintLettersInTheFullSlice(&Data.classic)
+		classic.Start(&Data.classic)
+		classic.PrintNLetters(&Data.classic)
+		http.Redirect(w, r, "/game", 303)
+	}
+	t.Execute(w, r)
+}
+
+func WinPage(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseFiles("./templates/YouWin.html"))
+	http.Redirect(w, r, "/level", 303)
+	t.Execute(w, r)
+}
+
+func LoosePage(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseFiles("./templates/GameOver.html"))
+	http.Redirect(w, r, "/level", 303)
+	t.Execute(w, r)
+}
+
+func GamePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/home.html"))
 	if r.FormValue("input") != "" {
-		Data.classic.Boolean = false
-		Data.classic.Boolean2 = false
+		Data.classic.InputTrue = false
+		Data.classic.InputTrue2 = false
 		if classic.IfZeroTry(&Data.classic) == true {
-			return
+			http.Redirect(w, r, "/loose", 303)
 		}
 		Data.classic.Try = strings.ToUpper(r.FormValue("input"))
 		if classic.IfInputIsTheFullWord(&Data.classic) == true {
-			return
+			http.Redirect(w, r, "/win", 303)
 		}
 		if classic.Ifinputisthesame(&Data.classic) == true {
 		} else {
 			if classic.IfInputIsTrue(&Data.classic) == false {
 				Data.classic.Jose++
 				Data.classic.TotalTries--
-				Data.classic.SliceTries = append((Data.classic.SliceTries), Data.classic.Try)
-			} else if Data.classic.Boolean == true {
-				Data.classic.SliceTries = append((Data.classic.SliceTries), Data.classic.Try)
+				Data.classic.SliceTries = append(Data.classic.SliceTries, Data.classic.Try)
+			} else if Data.classic.InputTrue == true {
+				Data.classic.SliceTries = append(Data.classic.SliceTries, Data.classic.Try)
 			}
 		}
 		if classic.IfSliceIsFull(&Data.classic) == true {
-			return
+			http.Redirect(w, r, "/win", 303)
 		}
 	}
+
 	t.Execute(w, struct {
 		Tries      int
 		Slice      string
 		SliceTries []string
 		Jose       int
+		Name       string
 	}{
 		Data.classic.TotalTries,
 		classic.PrintSlice(&Data.classic),
 		Data.classic.SliceTries,
 		Data.classic.Jose,
+		Data.classic.Name,
 	})
 }
 
 func main() {
 	fs := http.FileServer(http.Dir("jose"))
+	ff := http.FileServer(http.Dir("static/"))
+	fmt.Println("http://localhost:8080/level")
+	http.HandleFunc("/level", LevelPage)
+	http.HandleFunc("/game", GamePage)
+	http.HandleFunc("/win", WinPage)
+	http.HandleFunc("/loose", LoosePage)
+
 	http.Handle("/static/", http.StripPrefix("/static", fs))
-	print("http://localhost:8080")
-	Data.classic.NFormula = len(classic.Randomword())/2 - 1
-	Data.classic.Slice = make([]string, len(Data.classic.Randomword))
-	Data.classic.SliceRandomword = make([]string, len(Data.classic.Randomword))
-	classic.PrintLettersInTheFullSlice(&Data.classic)
-	classic.Start(&Data.classic)
-	classic.PrintNLetters(&Data.classic)
-	Data.classic.Jose = 0
-	/*t := template.Must(template.ParseFiles("./templates/home.html"))
-	Data.classic.Name = (r.FormValue("name"))
-	t.Execute(w, struct {})*/
-	http.HandleFunc("/", HandlePage)
+	http.Handle("/staticc/", http.StripPrefix("/staticc/", ff))
 	http.ListenAndServe(":8080", nil)
 }
