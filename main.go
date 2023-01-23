@@ -32,7 +32,7 @@ var Data = HangmanWeb{
 
 func LevelPage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/level.html"))
-	if !(r.FormValue("name ") == "" && r.FormValue("difficulty") == "") {
+	if !(r.FormValue("name") == "" && r.FormValue("difficulty") == "") {
 		Data.classic.Name = r.FormValue("name")
 		Data.classic.Difficulty = r.FormValue("difficulty")
 		Data.classic.Randomword = strings.ToUpper(classic.Randomword(&Data.classic))
@@ -50,13 +50,17 @@ func LevelPage(w http.ResponseWriter, r *http.Request) {
 
 func WinPage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/YouWin.html"))
-	http.Redirect(w, r, "/level", 303)
+	if r.FormValue("restart") != "" {
+		http.Redirect(w, r, "/level", 303)
+	}
 	t.Execute(w, r)
 }
 
 func LoosePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/GameOver.html"))
-	http.Redirect(w, r, "/level", 303)
+	if r.FormValue("restart") != "" {
+		http.Redirect(w, r, "/level", 303)
+	}
 	t.Execute(w, r)
 }
 
@@ -86,7 +90,6 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "/win", 303)
 		}
 	}
-
 	t.Execute(w, struct {
 		Tries      int
 		Slice      string
@@ -103,15 +106,18 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fs := http.FileServer(http.Dir("jose"))
-	ff := http.FileServer(http.Dir("static/"))
+	fsJose := http.FileServer(http.Dir("jose"))
+	fsCss := http.FileServer(http.Dir("static/css/"))
+	fsSource := http.FileServer(http.Dir("static/source/"))
+
 	fmt.Println("http://localhost:8080/level")
 	http.HandleFunc("/level", LevelPage)
 	http.HandleFunc("/game", GamePage)
 	http.HandleFunc("/win", WinPage)
 	http.HandleFunc("/loose", LoosePage)
 
-	http.Handle("/static/", http.StripPrefix("/static", fs))
-	http.Handle("/staticc/", http.StripPrefix("/staticc/", ff))
+	http.Handle("/jose/", http.StripPrefix("/jose", fsJose))
+	http.Handle("/css/", http.StripPrefix("/css/", fsCss))
+	http.Handle("/source/", http.StripPrefix("/source/", fsSource))
 	http.ListenAndServe(":8080", nil)
 }
