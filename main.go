@@ -16,7 +16,6 @@ var Data = HangmanWeb{
 	classic: classic.HangManData{
 		Try:             "",
 		Letter:          "",
-		Name:            "",
 		Difficulty:      "",
 		Randomword:      "",
 		TotalTries:      10,
@@ -33,7 +32,6 @@ var Data = HangmanWeb{
 func LevelPage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/level.html"))
 	if !(r.FormValue("name") == "" && r.FormValue("difficulty") == "") {
-		Data.classic.Name = r.FormValue("name")
 		Data.classic.Difficulty = r.FormValue("difficulty")
 		Data.classic.Randomword = strings.ToUpper(classic.Randomword(&Data.classic))
 		Data.classic.NFormula = len(classic.Randomword(&Data.classic))/2 - 1
@@ -95,13 +93,11 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 		Slice      string
 		SliceTries []string
 		Jose       int
-		Name       string
 	}{
 		Data.classic.TotalTries,
 		classic.PrintSlice(&Data.classic),
 		Data.classic.SliceTries,
 		Data.classic.Jose,
-		Data.classic.Name,
 	})
 }
 
