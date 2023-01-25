@@ -53,8 +53,8 @@ label {
     0 0 200px #03e9f4;
 }
 .gif_hard1 {
-    width: 100%;
-    height: 100%;
+    height: 100px;
+    width: 120px;
     z-index: 3;
     position: relative;
     left: 100px;
