@@ -18,10 +18,10 @@
 
 .div_radio {
     display: flex;
-    width: 450px;
+    width: 350px;
     height: 50px;
     justify-content: space-between;
-    margin: 20px auto;
+    margin: 1px 160px auto;
 }
 
 .div_hard1 {
@@ -35,7 +35,4 @@
     height: 100px;
     justify-content: center;
     margin: 1px auto;
-}
-
-form {
 }
