@@ -16,10 +16,8 @@
 
 .neon_letter {
     color: #e8daf6;
-    margin: 20px auto;
-    position: relative;
+    margin-right: 600px;
     font-size: 50px;
-    z-index: 2;
     text-shadow:
             0 0 6px rgb(232, 218, 246),
             0 0 30px rgba(211, 192, 227, 0.27),
@@ -85,8 +83,6 @@
     margin-right: 0;
     width: 200px;
     height: 200px;
-    position: relative;
-    float: right;
 }
 
 body {
@@ -94,6 +90,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    margin: 0;
 }
 
 .flou {
@@ -101,19 +98,25 @@ body {
     height: 700px;
 }
 
-section {
+.section1 {
     margin: 20px auto;
     padding: 0;
 }
 
 .section2 {
-    width: 900px;
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .game {
     width: 525px;
     height: 300px;
-    margin-left: 33%;
     text-align: center;
 }
 
@@ -122,7 +125,7 @@ section {
     width: 150px;
     height: 100px;
     margin: 20px auto;
-    top: 150px;
+    top: 0px;
     text-align: center;
 }
 
