@@ -21,7 +21,7 @@ label {
 
 .easy {
     left: 430px;
-    top: 40px;
+    top: 68px;
     font-family: Broadway;
     background-color: #7d1ef2;
     box-shadow: 0 0 5px #7d1ef2, 0 0 25px #7d1ef2, 0 0 50px #7d1ef2,
@@ -32,7 +32,7 @@ label {
 
 .medium {
     left: 827px;
-    top: 42px;
+    top: 70px;
     font-family: "Franklin Gothic Medium";
     -webkit-text-stroke: 0.75px black;
     background-color: #f300ce;
@@ -57,10 +57,13 @@ label {
     width: 120px;
     z-index: 3;
     position: relative;
-    left: 100px;
+    top: 235px;
+    left: 587px;
     background: url("https://i.gifer.com/XZ5N.gif") no-repeat center;
 }
 .gif_hard2 {
     transform: rotate(180deg);
     z-index: 4;
+    top: 130px;
+    left: 828px;
 }

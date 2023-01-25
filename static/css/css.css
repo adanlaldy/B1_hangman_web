@@ -98,6 +98,7 @@ body {
 
 .flou {
     backdrop-filter: blur(2.25px);
+    height: 700px;
 }
 
 section {
@@ -121,7 +122,7 @@ section {
     width: 150px;
     height: 100px;
     margin: 20px auto;
-    top: 100px;
+    top: 150px;
     text-align: center;
 }
 
