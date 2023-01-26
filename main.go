@@ -59,19 +59,28 @@ func restart() {
 }
 func WinPage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/YouWin.html"))
-	restart()
 	if r.FormValue("restart") != "" {
 		http.Redirect(w, r, "/level", 303)
 	}
-	t.Execute(w, r)
+	t.Execute(w, struct {
+		Randomword string
+	}{
+		Data.classic.Randomword,
+	})
+	restart()
+
 }
 func LoosePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/GameOver.html"))
-	restart()
 	if r.FormValue("restart") != "" {
 		http.Redirect(w, r, "/level", 303)
 	}
-	t.Execute(w, r)
+	t.Execute(w, struct {
+		Randomword string
+	}{
+		Data.classic.Randomword,
+	})
+	restart()
 }
 func GamePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/home.html"))
