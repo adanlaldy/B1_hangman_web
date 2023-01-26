@@ -4,6 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+input[type=radio] {
+    text-align: center;
+}
+.input_hard {
+    margin: 5px auto 30px auto;
+}
 label {
     position: relative;
     display: inline-block;
@@ -17,8 +23,6 @@ label {
     overflow: hidden;
 }
 .easy {
-    left: 430px;
-    top: 40px;
     font-family: Broadway;
     background-color: #7d1ef2;
     box-shadow: 0 0 5px #7d1ef2, 0 0 25px #7d1ef2, 0 0 50px #7d1ef2,
@@ -27,8 +31,6 @@ label {
     background-size: 55% 55%;
 }
 .medium {
-    left: 827px;
-    top: 42px;
     font-family: "Franklin Gothic Medium";
     -webkit-text-stroke: 0.75px black;
     background-color: #f300ce;
@@ -39,8 +41,7 @@ label {
     background-size: 100% 100%;
 }
 .hard {
-    top: 320px;
-    left: 705px;
+    margin: 15px auto;
     font-family: Copperplate Gothic Light;
     font-weight: bold;
     background-color: #03e9f4;
@@ -48,11 +49,10 @@ label {
     0 0 200px #03e9f4;
 }
 .gif_hard1 {
-    width: 100%;
-    height: 100%;
+    height: 100px;
+    width: 120px;
     z-index: 3;
     position: relative;
-    left: 100px;
     background: url("https://i.gifer.com/XZ5N.gif") no-repeat center;
 }
 .gif_hard2 {

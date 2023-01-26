@@ -4,32 +4,44 @@
   <link rel="stylesheet" href="./css/css.css">
   <link rel="stylesheet" href="./css/button_level.css">
   <link rel="stylesheet" href="./css/button_game.css">
+  <link rel="stylesheet" href="./css/level.css">
   <meta charset="UTF-8">
   <title>Hangman-web</title>
 </head>
 <body class="flou">
 <h1 class="neon quest">Choose your name and a difficulty</h1>
 <form method="POST">
-  <label for="easy" class="easy">
-    Easy
-  </label>
-  <input class="position_easy" name="difficulty" type="radio" value="easy" id="easy">
-  <label for="medium" class="medium">
-    Medium
-  </label>
-  <input class="position_medium" name="difficulty" type="radio" value="medium" id="medium">
+  <div class="div1 div1-1">
+    <div class="div_label">
+      <label for="easy" class="easy">
+        Easy
+      </label>
+      <label for="medium" class="medium">
+        Medium
+      </label>
+    </div>
+    <div class="div_radio">
+      <input name="difficulty" type="radio" value="easy" id="easy">
+      <input name="difficulty" type="radio" value="medium" id="medium">
+    </div>
+  </div>
   <section class="level">
     <input class="neon_input" name="name" type="text" placeholder="Choose a name" autocomplete="off"><br/>
     <br>
-    <button type="button" class="pulse enter">Enter</button>
+    <button type="submit" class="pulse enter">Enter</button>
   </section>
-  <label for="hard" class="hard">
-    Hard
-  </label>
-  <input class="position_hard" name="difficulty" type="radio" value="hard" id="hard">
-  <div class="gif_hard1">
+  <div class="div1 div1-2">
+    <div class="div_hard1">
+      <input class="input_hard" name="difficulty" type="radio" value="hard" id="hard">
+      <div class="div_hard2">
+        <div class="gif_hard1"></div>
+        <label for="hard" class="hard">
+          Hard
+        </label>
+        <div class="gif_hard2 gif_hard1"></div>
+      </div>
+    </div>
   </div>
-  <div class="gif_hard2 gif_hard1"></div>
 </form>
 </body>
 </html>

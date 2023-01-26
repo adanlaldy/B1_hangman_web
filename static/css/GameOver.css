@@ -3,12 +3,22 @@ body {
     background-position: center;
     background-color: black;
 }
-img {
+.over {
     width: 40%;
     height: auto;
-    position: center;
     display: block;
-    margin: auto;
+    margin: 0px 250px 0px auto;
+}
+.jose {
+    width: 20%;
+    height: 20%;
+    margin: auto 50px 150px 125px;
+    top: 0;
+    transform: scaleX(-1);
+}
+div {
+    justify-content: flex-end;
+    display: flex;
 }
 button {
     background-image: url("../source/tourne-a-gauche.png");
@@ -28,3 +38,20 @@ button:hover {
     transition-duration: 0.7s;
     transform: rotate(-360deg);
 }
+h1 {
+    color: #e8daf6;
+    font-size: 50px;
+    font-family: "Calibri Light", sans-serif;
+    margin-left: 25px;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    text-shadow:
+            0 0 6px rgb(232, 218, 246),
+            0 0 30px rgba(192, 227, 221, 0.27),
+            0 0 12px rgba(30, 242, 193, 0.52),
+            0 0 21px rgba(30, 242, 217, 0.92),
+            0 0 34px rgba(30, 242, 242, 0.78),
+            0 0 54px rgba(30, 242, 217, 0.92);
+}
+
