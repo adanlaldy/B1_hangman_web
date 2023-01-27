@@ -46,6 +46,11 @@
 .quest {
     font-size: 50px;
 }
+.score {
+    position: fixed;
+    font-size: 35px;
+    margin-left: 45px;
+}
 .tries {
     color: #e8daf6;
     position: relative;

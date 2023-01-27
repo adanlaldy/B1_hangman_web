@@ -28,13 +28,8 @@ button:hover {
     transform: rotate(-360deg);
     cursor: pointer;
 }
-h1 {
+.neon_yellow {
     color: #e8daf6;
-    font-size: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 15px;
-    font-family: "Calibri Light", sans-serif;
     text-shadow:
             0 0 6px rgb(232, 218, 246),
             0 0 30px rgba(227, 219, 192, 0.27),
@@ -42,4 +37,17 @@ h1 {
             0 0 21px rgba(242, 207, 30, 0.92),
             0 0 34px rgba(242, 200, 30, 0.78),
             0 0 54px rgba(242, 207, 30, 0.92);
+}
+h1 {
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    font-family: "Calibri Light", sans-serif;
+}
+h2 {
+    font-size: 40px;
+    font-family: "Calibri Light", sans-serif;
+    margin-left: 15px;
+    position: fixed;
 }
