@@ -21,10 +21,6 @@ Nous avons ajouté des fonctionnalités supplémentaires pour améliorer l'expé
 ```bash
 git clone https://ytrack.learn.ynov.com/git/clucille/hangman-web
 ```
-- Aller dans le dossier "web" avec la commande :
-```bash
-cd web
-```
 - Lancer le jeu avec la commande :
 ```bash
 go run main.go
