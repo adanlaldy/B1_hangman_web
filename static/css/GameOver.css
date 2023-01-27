@@ -45,14 +45,8 @@ button:hover {
     transform: rotate(-360deg);
 }
 
-h1 {
+.neon_vert {
     color: #e8daf6;
-    font-size: 50px;
-    font-family: "Calibri Light", sans-serif;
-    margin-left: 25px;
-    bottom: 0;
-    position: absolute;
-    display: flex;
     text-shadow:
             0 0 6px rgb(232, 218, 246),
             0 0 30px rgba(192, 227, 221, 0.27),
@@ -60,4 +54,20 @@ h1 {
             0 0 21px rgba(30, 242, 217, 0.92),
             0 0 34px rgba(30, 242, 242, 0.78),
             0 0 54px rgba(30, 242, 217, 0.92);
+}
+
+h1{
+    font-size: 50px;
+    font-family: "Calibri Light", sans-serif;
+    margin-left: 25px;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+}
+
+h2{
+    font-size: 40px;
+    font-family: "Calibri Light", sans-serif;
+    margin-left: 75px;
+    position: fixed;
 }
