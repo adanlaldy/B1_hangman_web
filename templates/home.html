@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="an">
+<head>
+    <link rel="stylesheet" href="./css/css.css">
+    <link rel="stylesheet" href="./css/button_game.css">
+    <meta charset="UTF-8">
+    <title>Hangman-web</title>
+</head>
+<body>
+<h1 class="neon title">NeonMan</h1>
+<h4 class="neon score">{{.Scoreboard}}</h4>
+<section class="section1 game">
+    <h2 class="tries">Number of try left: {{.Tries}}</h2>
+    <h3 class="slice">{{.Slice}}</h3>
+    <form method="POST">
+        <input class="neon_input" name="input" type="text" placeholder="Choose a letter" autocomplete="off" autofocus>
+        <br>
+        <button type="submit" class="pulse enter">Enter</button>
+    </form>
+</section>
+<section class="section2">
+    <h4 class="neon_letter">{{.SliceTries}}</h4>
+    <img class="position_jose" src="./jose/neonn({{.Jose}}).png" alt="">
+</section>
+</body>
+</html>

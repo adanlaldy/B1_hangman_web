@@ -1,0 +1,38 @@
+.div1{
+    width: 690px;
+    height: 150px;
+}
+
+.div1-1 {
+    margin: 70px auto;
+}
+
+.div1-2 {
+    margin: 115px auto 70px;
+}
+
+.div_label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.div_radio {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    justify-content: space-between;
+    margin: 1px 160px auto;
+}
+
+.div_hard1 {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.div_hard2 {
+    display: flex;
+    width: 370px;
+    height: 100px;
+    justify-content: center;
+    margin: 1px auto;
+}

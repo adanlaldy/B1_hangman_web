@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input[type=radio] {
+    text-align: center;
+}
+
+.input_hard {
+    margin: 5px auto 30px auto;
+}
+
+label {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    color: #050801;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    border-radius : 6px;
+    overflow: hidden;
+}
+
+.easy {
+    font-family: Broadway;
+    background-color: #7d1ef2;
+    box-shadow: 0 0 5px #7d1ef2, 0 0 25px #7d1ef2, 0 0 50px #7d1ef2,
+    0 0 200px #7d1ef2;
+    background-image: url("https://i.gifer.com/3F3I.gif");
+    background-size: 55% 55%;
+}
+
+.medium {
+    font-family: "Franklin Gothic Medium";
+    -webkit-text-stroke: 0.75px black;
+    background-color: #f300ce;
+    color: white;
+    box-shadow: 0 0 5px #f300ce, 0 0 25px #f300ce, 0 0 50px #f300ce,
+    0 0 200px #f300ce;
+    background-image: url("https://media2.giphy.com/media/PmAK5nUOm0Lp1pXczw/giphy.gif?cid=6c09b952debe0bcbd4ef636c02e27dd059b71edb7c0489b2&rid=giphy.gif&ct=s");
+    background-size: 100% 100%;
+}
+
+.hard {
+    margin: 15px auto;
+    font-family: Copperplate Gothic Light;
+    font-weight: bold;
+    background-color: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+}
+.gif_hard1 {
+    height: 100px;
+    width: 120px;
+    z-index: 3;
+    position: relative;
+    background: url("https://i.gifer.com/XZ5N.gif") no-repeat center;
+}
+.gif_hard2 {
+    transform: rotate(180deg);
+    z-index: 4;
+}
