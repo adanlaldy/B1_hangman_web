@@ -10,7 +10,7 @@
 ### Fonctionnalités :
 Nous avons ajouté des fonctionnalités supplémentaires pour améliorer l'expérience du joueur :
 
-    - Les positions du pendu(José).
+    - Les positions du pendu (José).
     - Le choix d'un nom du joueur et de la difficulté du jeu avant de commencer la partie.
     - Un tableau comprenant les lettres déjà proposées par le joueur.
     - Un tableau du score de la partie.
@@ -20,6 +20,10 @@ Nous avons ajouté des fonctionnalités supplémentaires pour améliorer l'expé
 - Cloner le dépôt du jeu avec la commande :
 ```bash
 git clone https://ytrack.learn.ynov.com/git/clucille/hangman-web
+```
+- Aller dans le dossier "web" avec la commande :
+```bash
+cd web
 ```
 - Lancer le jeu avec la commande :
 ```bash
