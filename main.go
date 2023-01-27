@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"strconv"
 	"strings"
 )
 
@@ -16,14 +17,18 @@ var Data = HangmanWeb{
 	classic: classic.HangManData{
 		Try:             "",
 		Letter:          "",
-		Difficulty:      "",
 		Randomword:      "",
+		Difficulty:      "",
+		Difficultchoice: "",
+		Name:            "",
+		Points:          100,
 		TotalTries:      10,
 		NFormula:        0,
 		Jose:            0,
 		Slice:           []string{},
 		SliceRandomword: []string{},
 		SliceTries:      []string{},
+		Scoreboard:      []string{},
 		InputTrue:       false,
 		InputTrue2:      false,
 	},
@@ -31,12 +36,16 @@ var Data = HangmanWeb{
 
 func LevelPage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/level.html"))
+	Data.classic.Scoreboard = append(Data.classic.Scoreboard, "")
 	if !(r.FormValue("name") == "" && r.FormValue("difficulty") == "") {
+		Data.classic.Name = r.FormValue("name")
+		Data.classic.Scoreboard[0] = Data.classic.Name
 		Data.classic.Difficulty = r.FormValue("difficulty")
 		Data.classic.Randomword = strings.ToUpper(classic.Randomword(&Data.classic))
 		Data.classic.NFormula = len(classic.Randomword(&Data.classic))/2 - 1
 		Data.classic.Slice = make([]string, len(Data.classic.Randomword))
 		Data.classic.SliceRandomword = make([]string, len(Data.classic.Randomword))
+		Data.classic.Scoreboard[2] = strconv.Itoa(100)
 		Data.classic.Jose = 0
 		classic.PrintLettersInTheFullSlice(&Data.classic)
 		classic.Start(&Data.classic)
@@ -45,7 +54,7 @@ func LevelPage(w http.ResponseWriter, r *http.Request) {
 	}
 	t.Execute(w, r)
 }
-func restart() {
+func Restart() {
 	Data.classic.Randomword = strings.ToUpper(classic.Randomword(&Data.classic))
 	Data.classic.NFormula = len(classic.Randomword(&Data.classic))/2 - 1
 	Data.classic.Slice = make([]string, len(Data.classic.Randomword))
@@ -59,19 +68,31 @@ func restart() {
 }
 func WinPage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/YouWin.html"))
-	restart()
 	if r.FormValue("restart") != "" {
 		http.Redirect(w, r, "/level", 303)
 	}
-	t.Execute(w, r)
+	t.Execute(w, struct {
+		Randomword string
+		Scoreboard string
+	}{
+		Data.classic.Randomword,
+		classic.PrintScoreboard(&Data.classic),
+	})
+	Restart()
 }
 func LoosePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/GameOver.html"))
-	restart()
 	if r.FormValue("restart") != "" {
 		http.Redirect(w, r, "/level", 303)
 	}
-	t.Execute(w, r)
+	t.Execute(w, struct {
+		Randomword string
+		Scoreboard string
+	}{
+		Data.classic.Randomword,
+		classic.PrintScoreboard(&Data.classic),
+	})
+	Restart()
 }
 func GamePage(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/home.html"))
@@ -90,6 +111,9 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 			if classic.IfInputIsTrue(&Data.classic) == false {
 				Data.classic.Jose++
 				Data.classic.TotalTries--
+				Data.classic.Points -= 10
+				Data.classic.Scoreboard[2] = strconv.Itoa(Data.classic.Points)
+				//Data.classic.Scoreboard2 = append(Data.classic.Scoreboard2, Data.classic.Scoreboard[0], Data.classic.Scoreboard[1], Data.classic.Scoreboard[2]+"\n")
 				Data.classic.SliceTries = append(Data.classic.SliceTries, Data.classic.Try)
 			} else if Data.classic.InputTrue == true {
 				Data.classic.SliceTries = append(Data.classic.SliceTries, Data.classic.Try)
@@ -104,11 +128,13 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 		Slice      string
 		SliceTries []string
 		Jose       int
+		Scoreboard string
 	}{
 		Data.classic.TotalTries,
 		classic.PrintSlice(&Data.classic),
 		Data.classic.SliceTries,
 		Data.classic.Jose,
+		classic.PrintScoreboard(&Data.classic),
 	})
 }
 func main() {
